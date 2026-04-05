@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
 
@@ -8,4 +8,4 @@ RUN chmod +x mvnw && ./mvnw clean install
 
 EXPOSE 8080
 
-CMD ["sh", "-c", "java -jar target/*.jar"] 
+CMD ["sh", "-c", "java -jar target/*.jar"]
