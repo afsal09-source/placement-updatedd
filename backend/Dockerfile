@@ -1,14 +1,11 @@
-FROM eclipse-temurin:17-jdk
+FROM maven:3.9.6-eclipse-temurin-17
 
 WORKDIR /app
 
-# install unzip (IMPORTANT FIX)
-RUN apt-get update && apt-get install -y unzip
-
 COPY . .
 
-RUN chmod +x mvnw && ./mvnw clean install
+RUN mvn clean package -DskipTests
 
-EXPOSE 8080
+EXPOSE 8081
 
-CMD ["sh", "-c", "java -jar target/*.jar"]
+CMD ["java", "-jar", "target/*.jar"]
