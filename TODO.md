@@ -1,0 +1,1 @@
+# TODO: Run Placement System on localhost\n\n- [x] Confirmed MySQL setup and configs\n- [x] Backend start initiated  \n- [x] Backend fully running ✅ http://localhost:8081/api\n- [ ] Frontend deps install & dev server\n- [ ] Full verification\n
