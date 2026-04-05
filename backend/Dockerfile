@@ -6,6 +6,6 @@ COPY . .
 
 RUN chmod +x mvnw && ./mvnw clean install
 
-EXPOSE 8080
+EXPOSE 8081
 
 CMD ["sh", "-c", "java -jar target/*.jar"]
