@@ -78,7 +78,7 @@ export default function Register() {
       const msg = err.response?.data?.message || err.message || 'Failed to send OTP'
       toast.error(msg)
       if (!err.response) {
-        toast.error('Unable to reach backend. Is the server running on http://localhost:8080?')
+        toast.error('Network Error: Unable to reach the server. Please check your connection or CORS configuration.')
       }
     } finally { setLoading(false) }
   }
@@ -141,7 +141,7 @@ export default function Register() {
       const msg = err.response?.data?.message || err.message || 'Failed to resend'
       toast.error(msg)
       if (!err.response) {
-        toast.error('Unable to reach backend. Is the server running on http://localhost:8080?')
+        toast.error('Network Error: Unable to reach the server. Please check your connection or CORS configuration.')
       }
     } finally { setLoading(false) }
   }
