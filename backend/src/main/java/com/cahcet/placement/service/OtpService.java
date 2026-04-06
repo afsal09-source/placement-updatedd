@@ -38,19 +38,17 @@ public class OtpService {
             throw new BadRequestException("This email is already registered. Please login.");
         }
 
-        // Delete any existing OTP for this email
-        otpRepository.deleteByEmail(email);
-
         // Generate 6-digit OTP
         String otp = String.format("%06d", RANDOM.nextInt(1_000_000));
 
-        OtpVerification verification = OtpVerification.builder()
-            .email(email)
-            .otp(otp)
-            .expiresAt(LocalDateTime.now().plusMinutes(otpExpiryMinutes))
-            .verified(false)
-            .attempts(0)
-            .build();
+        // Check if an OTP already exists for this email and reuse the record, 
+        // to prevent SQL Integrity constraint violations on the unique email column.
+        OtpVerification verification = otpRepository.findByEmail(email).orElse(new OtpVerification());
+        verification.setEmail(email);
+        verification.setOtp(otp);
+        verification.setExpiresAt(LocalDateTime.now().plusMinutes(otpExpiryMinutes));
+        verification.setVerified(false);
+        verification.setAttempts(0);
 
         otpRepository.save(verification);
 
