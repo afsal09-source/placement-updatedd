@@ -24,6 +24,7 @@ D:\Downloads\placement-final-with-maven\placement-updated\backend\src\main\java\
 D:\Downloads\placement-final-with-maven\placement-updated\backend\src\main\java\com\cahcet\placement\entity\User.java
 D:\Downloads\placement-final-with-maven\placement-updated\backend\src\main\java\com\cahcet\placement\service\NotificationService.java
 D:\Downloads\placement-final-with-maven\placement-updated\backend\src\main\java\com\cahcet\placement\service\OtpService.java
+D:\Downloads\placement-final-with-maven\placement-updated\backend\src\main\java\com\cahcet\placement\config\DatabaseConfig.java
 D:\Downloads\placement-final-with-maven\placement-updated\backend\src\main\java\com\cahcet\placement\security\JwtAuthenticationFilter.java
 D:\Downloads\placement-final-with-maven\placement-updated\backend\src\main\java\com\cahcet\placement\security\JwtTokenProvider.java
 D:\Downloads\placement-final-with-maven\placement-updated\backend\src\main\java\com\cahcet\placement\controller\DriveController.java

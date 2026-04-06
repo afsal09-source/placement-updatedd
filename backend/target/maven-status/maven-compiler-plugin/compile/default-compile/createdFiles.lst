@@ -40,6 +40,7 @@ com\cahcet\placement\repository\UserRepository.class
 com\cahcet\placement\dto\DriveDTO$DriveResponse.class
 com\cahcet\placement\dto\StudentDTO$PlacementPrediction.class
 com\cahcet\placement\dto\StudentDTO$ProfileResponse.class
+com\cahcet\placement\config\DatabaseConfig.class
 com\cahcet\placement\dto\FeedbackDTO.class
 com\cahcet\placement\controller\CoordinatorController$DriveDetailResponse.class
 com\cahcet\placement\controller\AnalyticsController.class
