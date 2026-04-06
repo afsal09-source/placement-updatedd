@@ -1,7 +1,6 @@
 import axios from 'axios'
 
-const BASE_URL = '/api'
-
+const BASE_URL = import.meta.env.VITE_API_URL || '/api'
 const api = axios.create({
   baseURL: BASE_URL,
   headers: { 'Content-Type': 'application/json' },
@@ -95,9 +94,9 @@ export const fileAPI = {
   // Get resume info (has resume? filename?)
   getResumeInfo: (studentId) => api.get(`/files/resume/${studentId}/info`),
   // View URL (inline PDF in browser tab) — used as href
-  getViewUrl:    (studentId) => `/api/files/resume/${studentId}`,
+  getViewUrl:    (studentId) => `${BASE_URL}/files/resume/${studentId}`,
   // Download URL — used as href with download attribute
-  getDownloadUrl:(studentId) => `/api/files/resume/${studentId}?download=true`,
+  getDownloadUrl:(studentId) => `${BASE_URL}/files/resume/${studentId}?download=true`,
   // Fetch blob for programmatic open/download (carries the Bearer token)
   fetchResume:   (studentId, download = false) =>
     api.get(`/files/resume/${studentId}${download ? '?download=true' : ''}`, {
