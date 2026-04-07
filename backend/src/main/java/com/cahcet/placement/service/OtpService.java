@@ -52,13 +52,13 @@ public class OtpService {
 
         otpRepository.save(verification);
 
-        // Send OTP email (async). Do not fail OTP flow if email service throws.
+        // Send OTP email - let errors propagate so user sees the real issue
         try {
             emailService.sendOtpEmail(email, otp, otpExpiryMinutes);
-            log.info("OTP process complete for email: {} (OTP delivered or logged)", email);
+            log.info("OTP sent successfully for email: {}", email);
         } catch (Exception e) {
-            log.warn("OTP was generated and stored, but email delivery failed for {}: {}", email, e.getMessage());
-            // Keep the OTP in DB; user can still verify manually from logs in dev mode.
+            log.error("Email delivery failed for {}: {}", email, e.getMessage(), e);
+            throw new BadRequestException("OTP saved but email failed: " + e.getMessage());
         }
     }
 

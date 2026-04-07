@@ -497,28 +497,14 @@ public class EmailService {
     // ─────────────────────────────────────────────────────────────────────
     // OTP VERIFICATION EMAIL
     // ─────────────────────────────────────────────────────────────────────
-@Async
-    public void sendOtpEmail(String toEmail, String otp, int expiryMinutes) {
-        // DEV MODE: Write OTP to console/log so testing is possible without real SMTP.
-        System.out.println("\n🚀=== OTP GENERATED FOR DEV ===");
-        System.out.println("📧 Email: " + toEmail);
-        System.out.println("🔑 OTP: " + otp);
-        System.out.println("⏰ Expires in " + expiryMinutes + " minutes");
-        System.out.println("===============================\n");
-        log.info("🚀 DEV OTP for {}: {}", toEmail, otp);
+    public void sendOtpEmail(String toEmail, String otp, int expiryMinutes) throws Exception {
+        // Log OTP for debugging
+        log.info("🚀 OTP for {}: {}", toEmail, otp);
 
-        // Optional production email send; handle errors gracefully.
-        try {
-            if (mailSender != null) {
-                String subject = "Your OTP for CAHCET Placement Portal Registration";
-                String html = buildOtpEmail(toEmail, otp, expiryMinutes);
-                sendHtml(toEmail, subject, html);
-                log.info("OTP email sent to {}", toEmail);
-            }
-        } catch (Exception e) {
-            log.warn("Failed to send OTP via SMTP for {}: {}", toEmail, e.getMessage());
-            // Continue: OTP is still valid in DB, user can use logged value in dev.
-        }
+        String subject = "Your OTP for CAHCET Placement Portal Registration";
+        String html = buildOtpEmail(toEmail, otp, expiryMinutes);
+        sendHtml(toEmail, subject, html);
+        log.info("✅ OTP email sent successfully to {}", toEmail);
     }
 
     private String buildOtpEmail(String email, String otp, int expiryMinutes) {
