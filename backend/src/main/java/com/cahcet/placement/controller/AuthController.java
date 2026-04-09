@@ -20,9 +20,8 @@ public class AuthController {
     /** Step 1 – Send OTP */
     @PostMapping("/send-otp")
     public ResponseEntity<ApiResponse<String>> sendOtp(@Valid @RequestBody SendOtpRequest request) {
-        otpService.sendOtp(request.getEmail());
-        return ResponseEntity.ok(ApiResponse.success(
-            "OTP sent to " + request.getEmail() + ". Check your inbox.", request.getEmail()));
+        String message = otpService.sendOtp(request.getEmail());
+        return ResponseEntity.ok(ApiResponse.success(message, request.getEmail()));
     }
 
     /** Step 2 – Verify OTP */

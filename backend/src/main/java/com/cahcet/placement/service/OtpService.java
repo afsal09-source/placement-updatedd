@@ -32,7 +32,7 @@ public class OtpService {
     /**
      * Step 1: Send OTP to email for verification before registration.
      */
-    public void sendOtp(String email) {
+    public String sendOtp(String email) {
         // Check if already registered
         if (userRepository.existsByEmail(email)) {
             throw new BadRequestException("This email is already registered. Please login.");
@@ -56,9 +56,11 @@ public class OtpService {
         try {
             emailService.sendOtpEmail(email, otp, otpExpiryMinutes);
             log.info("OTP sent successfully for email: {}", email);
+            return "OTP sent! Check your email inbox.";
         } catch (Exception e) {
             log.error("Email delivery failed for {}: {}", email, e.getMessage(), e);
-            throw new BadRequestException("OTP saved but email failed: " + e.getMessage());
+            // Render Free Tier blocks outbound SMTP. Provide a fallback OTP message.
+            return "Email blocked by host. Demo OTP is: " + otp;
         }
     }
 

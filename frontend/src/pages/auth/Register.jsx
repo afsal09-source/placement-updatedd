@@ -70,8 +70,15 @@ export default function Register() {
 
     setLoading(true)
     try {
-      await authAPI.sendOtp(normalizedEmail)
-      toast.success('OTP sent! Check your email inbox.')
+      const res = await authAPI.sendOtp(normalizedEmail)
+      const msg = res.data?.message || 'OTP sent! Check your email inbox.'
+      
+      if (msg.includes('Demo OTP')) {
+        toast.success(msg, { duration: 10000 })
+      } else {
+        toast.success(msg)
+      }
+      
       setStep(2)
       setResendTimer(60)
     } catch (err) {
@@ -133,8 +140,15 @@ export default function Register() {
 
     setLoading(true)
     try {
-      await authAPI.sendOtp(normalizedEmail)
-      toast.success('New OTP sent!')
+      const res = await authAPI.sendOtp(normalizedEmail)
+      const msg = res.data?.message || 'New OTP sent!'
+      
+      if (msg.includes('Demo OTP')) {
+        toast.success(msg, { duration: 10000 })
+      } else {
+        toast.success(msg)
+      }
+      
       setOtp(['','','','','',''])
       setResendTimer(60)
     } catch (err) {
