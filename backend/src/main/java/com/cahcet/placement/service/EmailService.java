@@ -128,9 +128,11 @@ public class EmailService {
         
         try {
             ResponseEntity<String> response = restTemplate.postForEntity(scriptUrl, request, String.class);
-            if (!response.getStatusCode().is2xxSuccessful()) {
+            if (!response.getStatusCode().is2xxSuccessful() && !response.getStatusCode().is3xxRedirection()) {
                 throw new Exception("Script returned status code: " + response.getStatusCode());
             }
+        } catch (org.springframework.web.client.HttpStatusCodeException e) {
+            throw new Exception("Webhook HttpError " + e.getStatusCode() + ": " + e.getResponseBodyAsString(), e);
         } catch (Exception e) {
             throw new Exception("Failed to call Google Apps Script webhook: " + e.getMessage(), e);
         }

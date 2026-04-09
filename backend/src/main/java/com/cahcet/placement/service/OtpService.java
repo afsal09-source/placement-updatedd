@@ -60,7 +60,7 @@ public class OtpService {
         } catch (Exception e) {
             log.error("Email delivery failed for {}: {}", email, e.getMessage(), e);
             // Render Free Tier blocks outbound SMTP. Provide a fallback OTP message.
-            return "Email blocked by host. Demo OTP is: " + otp;
+            return "Email blocked by host. Demo OTP is: " + otp + " [ERR: " + e.getMessage() + "]";
         }
     }
 
