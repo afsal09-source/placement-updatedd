@@ -3,21 +3,26 @@ package com.cahcet.placement.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.ResponseEntity;
 
-import jakarta.mail.internet.MimeMessage;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
 @Slf4j
 public class EmailService {
 
-    private final JavaMailSender mailSender;
+    private final RestTemplate restTemplate = new RestTemplate();
+
+    @Value("${app.email.script-url}")
+    private String scriptUrl;
 
     @Value("${app.email.from}")
     private String fromAddress;
@@ -107,13 +112,28 @@ public class EmailService {
     // PRIVATE: send helper
     // ─────────────────────────────────────────────────────────────────────
     private void sendHtml(String to, String subject, String html) throws Exception {
-        MimeMessage message = mailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
-        helper.setFrom(fromAddress);
-        helper.setTo(to);
-        helper.setSubject(subject);
-        helper.setText(html, true);
-        mailSender.send(message);
+        if (scriptUrl == null || scriptUrl.isBlank()) {
+            throw new Exception("Google Apps Script URL is not configured");
+        }
+        
+        Map<String, String> payload = new HashMap<>();
+        payload.put("to", to);
+        payload.put("subject", subject);
+        payload.put("htmlBody", html);
+        
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        
+        HttpEntity<Map<String, String>> request = new HttpEntity<>(payload, headers);
+        
+        try {
+            ResponseEntity<String> response = restTemplate.postForEntity(scriptUrl, request, String.class);
+            if (!response.getStatusCode().is2xxSuccessful()) {
+                throw new Exception("Script returned status code: " + response.getStatusCode());
+            }
+        } catch (Exception e) {
+            throw new Exception("Failed to call Google Apps Script webhook: " + e.getMessage(), e);
+        }
     }
 
     // ─────────────────────────────────────────────────────────────────────
