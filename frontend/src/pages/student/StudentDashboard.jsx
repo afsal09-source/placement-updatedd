@@ -34,7 +34,7 @@ export default function StudentDashboard() {
     <div className="space-y-6 fade-in">
       {/* Welcome banner */}
       <div className="bg-gradient-to-r from-blue-900 to-blue-700 rounded-2xl p-6 text-white">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <p className="text-blue-200 text-sm font-medium mb-1">Welcome back 👋</p>
             <h1 className="font-display text-2xl font-bold">{user?.firstName} {user?.lastName}</h1>
@@ -47,7 +47,7 @@ export default function StudentDashboard() {
             )}
           </div>
           {profile?.cgpa && (
-            <div className="text-right">
+            <div className="sm:text-right flex flex-col sm:block justify-end">
               <p className="text-blue-200 text-xs mb-0.5">CGPA</p>
               <p className="font-display text-4xl font-bold">{profile.cgpa.toFixed(2)}</p>
             </div>
@@ -56,7 +56,7 @@ export default function StudentDashboard() {
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard icon={Briefcase}  label="Active Drives"   value={drives.length}        color="blue" />
         <StatCard icon={BookOpen}   label="My Applications" value={apps.length}           color="purple" />
         <StatCard icon={TrendingUp} label="In Progress"     value={pending}               color="orange" />
@@ -119,7 +119,7 @@ export default function StudentDashboard() {
       </div>
 
       {/* Quick links */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
         {[
           { to: '/student/profile',    icon: User,       label: 'Update Profile',     color: 'bg-blue-50 text-blue-700' },
           { to: '/student/drives',     icon: Briefcase,  label: 'Browse Drives',      color: 'bg-green-50 text-green-700' },
