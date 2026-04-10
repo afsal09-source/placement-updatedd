@@ -157,23 +157,7 @@ export default function Login() {
               </div>
 
               <div className="space-y-1">
-                <div className="flex items-center justify-between">
-                  <label className="text-[11px] font-semibold text-gray-500 uppercase tracking-wider">Password</label>
-                  <button 
-                    type="button" 
-                    onClick={(e) => {
-                      e.preventDefault();
-                      if (!form.email) {
-                        toast.error('Please enter your email address first to reset password');
-                        return;
-                      }
-                      toast.success(`Password reset instructions sent to ${form.email}`);
-                    }}
-                    className="text-xs font-medium text-blue-600 hover:text-blue-700 hover:underline transition-all focus:outline-none"
-                  >
-                    Forgot password?
-                  </button>
-                </div>
+                <label className="text-[11px] font-semibold text-gray-500 uppercase tracking-wider">Password</label>
                 <div className="relative group">
                   <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400 group-focus-within:text-blue-500 transition-colors">
                     <Lock size={18} strokeWidth={2} />
