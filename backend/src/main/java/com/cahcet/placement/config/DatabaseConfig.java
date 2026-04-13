@@ -47,8 +47,10 @@ public class DatabaseConfig {
                 String query = uri.getQuery();
                 
                 finalUrl = "jdbc:mysql://" + host + ":" + port + path;
-                if (query != null) {
-                    finalUrl += "?" + query;
+                if (query != null && !query.isEmpty()) {
+                    finalUrl += "?" + query + "&socketTimeout=30000&connectTimeout=10000";
+                } else {
+                    finalUrl += "?socketTimeout=30000&connectTimeout=10000";
                 }
             } catch (Exception e) {
                 // Ignore parsing errors and fallback
