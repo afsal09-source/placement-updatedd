@@ -5,7 +5,7 @@ import ResumeViewer from '../../components/common/ResumeViewer'
 import { User, Upload, Save, CheckCircle } from 'lucide-react'
 import toast from 'react-hot-toast'
 
-const DEPTS = ['CSE','ECE','EEE','MECH','CIVIL','IT','AIDS','AIML']
+const DEPTS = ['CSE','ECE','EEE','MECH','CIVIL','IT','AIDS','AIML','Arts and Sciences']
 
 export default function MyProfile() {
   const [profile, setProfile] = useState(null)

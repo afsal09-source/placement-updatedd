@@ -109,7 +109,7 @@ export default function FeedbackForm() {
     <div className="space-y-6 fade-in max-w-2xl">
       <PageHeader
         title="Submit Feedback"
-        subtitle="Help us improve the placement process at CAHCET"
+        subtitle="Help us improve the placement process at MMES"
       />
 
       <form onSubmit={handleSubmit} className="space-y-5">

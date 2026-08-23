@@ -6,7 +6,7 @@ import { authAPI } from '../../services/api'
 import { GraduationCap, Mail, CheckCircle, ArrowRight, RefreshCw, Shield } from 'lucide-react'
 
 const ROLES = ['STUDENT', 'RECRUITER', 'COORDINATOR']
-const DEPTS = ['CSE', 'ECE', 'EEE', 'MECH', 'CIVIL', 'IT', 'AIDS', 'AIML']
+const DEPTS = ['CSE', 'ECE', 'EEE', 'MECH', 'CIVIL', 'IT', 'AIDS', 'AIML', 'Arts and Sciences']
 const ROLE_REDIRECTS = { STUDENT: '/student', RECRUITER: '/recruiter', COORDINATOR: '/coordinator' }
 
 // ── Step indicator ───────────────────────────────────────────────────────
@@ -190,7 +190,7 @@ export default function Register() {
             <GraduationCap size={24} className="text-white" />
           </div>
           <div>
-            <p className="font-display font-bold text-gray-900 text-lg leading-tight">CAHCET Placement Portal</p>
+            <p className="font-display font-bold text-gray-900 text-lg leading-tight">MMES Placement Portal</p>
             <p className="text-xs text-gray-500">M.M.E.S. Women's Arts and Science College</p>
           </div>
         </div>
@@ -282,7 +282,7 @@ export default function Register() {
               <div className="flex items-start gap-2.5 p-3 bg-amber-50 border border-amber-100 rounded-xl">
                 <Shield size={16} className="text-amber-600 flex-shrink-0 mt-0.5" />
                 <p className="text-xs text-amber-700 leading-relaxed">
-                  Never share this OTP. Max 5 attempts allowed. CAHCET will never ask for your OTP.
+                  Never share this OTP. Max 5 attempts allowed. MMES will never ask for your OTP.
                 </p>
               </div>
 
