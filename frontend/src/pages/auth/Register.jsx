@@ -191,7 +191,7 @@ export default function Register() {
           </div>
           <div>
             <p className="font-display font-bold text-gray-900 text-lg leading-tight">CAHCET Placement Portal</p>
-            <p className="text-xs text-gray-500">C. Abdul Hakeem College of Engineering and Technology</p>
+            <p className="text-xs text-gray-500">M.M.E.S. Women's Arts and Science College</p>
           </div>
         </div>
 
