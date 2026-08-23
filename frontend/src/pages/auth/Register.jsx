@@ -6,7 +6,17 @@ import { authAPI } from '../../services/api'
 import { GraduationCap, Mail, CheckCircle, ArrowRight, RefreshCw, Shield } from 'lucide-react'
 
 const ROLES = ['STUDENT', 'RECRUITER', 'COORDINATOR']
-const DEPTS = ['CSE', 'ECE', 'EEE', 'MECH', 'CIVIL', 'IT', 'AIDS', 'AIML', 'Arts and Sciences']
+const DEPTS = [
+  // BSc Departments
+  'BSc Chemistry', 'BSc Physics', 'BSc Mathematics',
+  'BSc Computer Science', 'BSc Microbiology', 'BSc Botany',
+  'BSc Zoology', 'BSc Electronics', 'BSc Statistics',
+  // BA Departments
+  'BA English', 'BA Tamil', 'BA Economics',
+  'BA History', 'BA Sociology', 'BA Political Science',
+  // BCA & BCom
+  'BCA', 'BCom', 'BCom (Computer Applications)',
+]
 const ROLE_REDIRECTS = { STUDENT: '/student', RECRUITER: '/recruiter', COORDINATOR: '/coordinator' }
 
 // ── Step indicator ───────────────────────────────────────────────────────
@@ -42,7 +52,7 @@ export default function Register() {
 
   const [form, setForm] = useState({
     firstName: '', lastName: '', password: '', confirmPassword: '',
-    role: 'STUDENT', rollNumber: '', department: 'CSE', batch: '',
+    role: 'STUDENT', rollNumber: '', department: 'BSc Chemistry', batch: '',
     companyName: '', designation: '',
   })
 
@@ -363,7 +373,7 @@ export default function Register() {
                 <div className="grid grid-cols-3 gap-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
                   <div>
                     <label className="label">Roll Number *</label>
-                    <input className="input" placeholder="21CSE001" value={form.rollNumber}
+                    <input className="input" placeholder="21BCA001" value={form.rollNumber}
                       onChange={e => set('rollNumber', e.target.value)} required />
                   </div>
                   <div>

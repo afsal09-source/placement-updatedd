@@ -4,7 +4,15 @@ import { PageHeader, Badge, Spinner, EmptyState, Modal } from '../../components/
 import { Briefcase, Plus, Edit2, Trash2, Mail } from 'lucide-react'
 import toast from 'react-hot-toast'
 
-const DEPTS = 'ALL,CSE,ECE,EEE,MECH,CIVIL,IT,AIDS,AIML,Arts and Sciences'.split(',')
+const DEPTS = [
+  'ALL',
+  'BSc Chemistry', 'BSc Physics', 'BSc Mathematics',
+  'BSc Computer Science', 'BSc Microbiology', 'BSc Botany',
+  'BSc Zoology', 'BSc Electronics', 'BSc Statistics',
+  'BA English', 'BA Tamil', 'BA Economics',
+  'BA History', 'BA Sociology', 'BA Political Science',
+  'BCA', 'BCom', 'BCom (Computer Applications)',
+]
 const STATUSES = ['UPCOMING','ACTIVE','COMPLETED','CANCELLED']
 
 const emptyForm = {
