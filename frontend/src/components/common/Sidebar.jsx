@@ -77,7 +77,7 @@ export default function Sidebar({ role, open }) {
             <GraduationCap size={20} className="text-white" />
           </div>
           <div>
-            <p className="font-display font-bold text-sm leading-tight">MMES</p>
+            <p className="font-display font-bold text-sm leading-tight">CAHCET</p>
             <p className="text-white/60 text-xs">Placement Portal</p>
           </div>
         </div>

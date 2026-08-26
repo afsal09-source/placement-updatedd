@@ -6,17 +6,7 @@ import { authAPI } from '../../services/api'
 import { GraduationCap, Mail, CheckCircle, ArrowRight, RefreshCw, Shield } from 'lucide-react'
 
 const ROLES = ['STUDENT', 'RECRUITER', 'COORDINATOR']
-const DEPTS = [
-  // BSc Departments
-  'BSc Chemistry', 'BSc Physics', 'BSc Mathematics',
-  'BSc Computer Science', 'BSc Microbiology', 'BSc Botany',
-  'BSc Zoology', 'BSc Electronics', 'BSc Statistics',
-  // BA Departments
-  'BA English', 'BA Tamil', 'BA Economics',
-  'BA History', 'BA Sociology', 'BA Political Science',
-  // BCA & BCom
-  'BCA', 'BCom', 'BCom (Computer Applications)',
-]
+const DEPTS = ['CSE', 'ECE', 'EEE', 'MECH', 'CIVIL', 'IT', 'AIDS', 'AIML']
 const ROLE_REDIRECTS = { STUDENT: '/student', RECRUITER: '/recruiter', COORDINATOR: '/coordinator' }
 
 // ── Step indicator ───────────────────────────────────────────────────────
@@ -52,7 +42,7 @@ export default function Register() {
 
   const [form, setForm] = useState({
     firstName: '', lastName: '', password: '', confirmPassword: '',
-    role: 'STUDENT', rollNumber: '', department: 'BSc Chemistry', batch: '',
+    role: 'STUDENT', rollNumber: '', department: 'CSE', batch: '',
     companyName: '', designation: '',
   })
 
@@ -200,8 +190,8 @@ export default function Register() {
             <GraduationCap size={24} className="text-white" />
           </div>
           <div>
-            <p className="font-display font-bold text-gray-900 text-lg leading-tight">MMES Placement Portal</p>
-            <p className="text-xs text-gray-500">M.M.E.S. Women's Arts and Science College</p>
+            <p className="font-display font-bold text-gray-900 text-lg leading-tight">CAHCET Placement Portal</p>
+            <p className="text-xs text-gray-500">C. Abdul Hakeem College of Engineering and Technology</p>
           </div>
         </div>
 
@@ -292,7 +282,7 @@ export default function Register() {
               <div className="flex items-start gap-2.5 p-3 bg-amber-50 border border-amber-100 rounded-xl">
                 <Shield size={16} className="text-amber-600 flex-shrink-0 mt-0.5" />
                 <p className="text-xs text-amber-700 leading-relaxed">
-                  Never share this OTP. Max 5 attempts allowed. MMES will never ask for your OTP.
+                  Never share this OTP. Max 5 attempts allowed. CAHCET will never ask for your OTP.
                 </p>
               </div>
 
@@ -373,7 +363,7 @@ export default function Register() {
                 <div className="grid grid-cols-3 gap-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
                   <div>
                     <label className="label">Roll Number *</label>
-                    <input className="input" placeholder="21BCA001" value={form.rollNumber}
+                    <input className="input" placeholder="21CSE001" value={form.rollNumber}
                       onChange={e => set('rollNumber', e.target.value)} required />
                   </div>
                   <div>

@@ -31,7 +31,7 @@ export default function Navbar({ onMenuClick }) {
         </button>
         <div>
           <h1 className="font-display font-bold text-gray-900 text-base leading-none">
-            M.M.E.S. Women's Arts and Science College
+            C. Abdul Hakeem College of Engineering and Technology
           </h1>
           <p className="text-xs text-gray-400 mt-0.5">Smart Placement Analytics & Feedback Management System</p>
         </div>
