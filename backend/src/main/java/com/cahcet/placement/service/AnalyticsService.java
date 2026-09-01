@@ -102,7 +102,14 @@ public class AnalyticsService {
     }
 
     private List<DepartmentStats> getDepartmentStats() {
-        List<String> departments = List.of("BSC", "BCA", "BA");
+        List<String> departments = List.of(
+            "BSc Computer Science", "BSc Mathematics", "BSc Chemistry",
+            "BSc Physics", "BSc Botany", "BSc Zoology",
+            "BSc Biochemistry", "BSc Microbiology", "BSc Information Technology",
+            "BSc Statistics", "BA Tamil", "BA English", "BA History",
+            "BA Economics", "BA Geography", "BA Political Science",
+            "BA Sociology", "BCA", "BCom", "BCom Computer Applications", "BBA"
+        );
         List<DepartmentStats> stats = new ArrayList<>();
         for (String dept : departments) {
             long total = studentProfileRepository.findAll().stream()

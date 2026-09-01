@@ -6,7 +6,29 @@ import { authAPI } from '../../services/api'
 import { GraduationCap, Mail, CheckCircle, ArrowRight, RefreshCw, Shield } from 'lucide-react'
 
 const ROLES = ['STUDENT', 'RECRUITER', 'COORDINATOR']
-const DEPTS = ['BSC', 'BCA', 'BA']
+const DEPTS = [
+  'BSc Computer Science',
+  'BSc Mathematics',
+  'BSc Chemistry',
+  'BSc Physics',
+  'BSc Botany',
+  'BSc Zoology',
+  'BSc Biochemistry',
+  'BSc Microbiology',
+  'BSc Information Technology',
+  'BSc Statistics',
+  'BA Tamil',
+  'BA English',
+  'BA History',
+  'BA Economics',
+  'BA Geography',
+  'BA Political Science',
+  'BA Sociology',
+  'BCA',
+  'BCom',
+  'BCom Computer Applications',
+  'BBA',
+]
 const ROLE_REDIRECTS = { STUDENT: '/student', RECRUITER: '/recruiter', COORDINATOR: '/coordinator' }
 
 // ── Step indicator ───────────────────────────────────────────────────────
@@ -42,7 +64,7 @@ export default function Register() {
 
   const [form, setForm] = useState({
     firstName: '', lastName: '', password: '', confirmPassword: '',
-    role: 'STUDENT', rollNumber: '', department: 'BSC', batch: '',
+    role: 'STUDENT', rollNumber: '', department: 'BSc Computer Science', batch: '',
     companyName: '', designation: '',
   })
 
