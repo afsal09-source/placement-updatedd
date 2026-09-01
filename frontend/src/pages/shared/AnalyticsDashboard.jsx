@@ -71,7 +71,7 @@ export default function AnalyticsDashboard() {
 
   return (
     <div className="space-y-6 fade-in">
-      <PageHeader title="Analytics Dashboard" subtitle="Comprehensive placement analytics for CAHCET" />
+      <PageHeader title="Analytics Dashboard" subtitle="Comprehensive placement analytics for M.M.E.S." />
 
       {/* Top KPIs */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">

@@ -192,9 +192,9 @@ public class EmailService {
                 <tr>
                   <td style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:20px 36px;">
                     <p style="margin:0;font-size:11px;color:#94a3b8;line-height:1.6;">
-                      This is an automated message from the CAHCET Placement Portal.<br>
+                      This is an automated message from the M.M.E.S. Placement Portal.<br>
                       <strong style="color:#64748b;">%s</strong><br>
-                      Department of Computer Science &amp; Engineering, Melvisharam.
+                      M.M.E.S. Women's Arts and Science College.
                     </p>
                     <p style="margin:8px 0 0;font-size:11px;color:#94a3b8;">
                       If you did not expect this email, please contact the placement cell.

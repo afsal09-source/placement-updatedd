@@ -40,7 +40,7 @@ export default function AdminDashboard() {
     <div className="space-y-6 fade-in">
       <PageHeader
         title="Admin Dashboard"
-        subtitle="Real-time placement analytics for CAHCET"
+        subtitle="Real-time placement analytics for M.M.E.S."
       />
 
       {/* Stat cards */}

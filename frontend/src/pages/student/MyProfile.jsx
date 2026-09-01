@@ -5,7 +5,7 @@ import ResumeViewer from '../../components/common/ResumeViewer'
 import { User, Upload, Save, CheckCircle } from 'lucide-react'
 import toast from 'react-hot-toast'
 
-const DEPTS = ['CSE','ECE','EEE','MECH','CIVIL','IT','AIDS','AIML']
+const DEPTS = ['BSC','BCA','BA']
 
 export default function MyProfile() {
   const [profile, setProfile] = useState(null)
@@ -24,7 +24,7 @@ export default function MyProfile() {
           cgpa: d.cgpa || '', phoneNumber: d.phoneNumber || '',
           address: d.address || '', linkedin: d.linkedin || '',
           github: d.github || '', skills: d.skills || '',
-          department: d.department || 'CSE', batch: d.batch || '',
+          department: d.department || 'BSC', batch: d.batch || '',
         })
       })
       .catch(() => toast.error('Failed to load profile'))
