@@ -148,7 +148,7 @@ export default function Login() {
                   <input
                     type="email" 
                     className="w-full pl-10 pr-4 py-3 bg-gray-50/50 border border-gray-200 rounded-xl text-sm focus:bg-white focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-200 outline-none placeholder-gray-400"
-                    placeholder="you@cahcet.edu.in"
+                    placeholder="you@mmes.ac.in"
                     value={form.email}
                     onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
                     required
@@ -216,17 +216,17 @@ export default function Login() {
               Demo Credentials
             </p>
             <div className="grid grid-cols-2 gap-3">
-              <div className="bg-gray-50/80 p-3 rounded-xl border border-gray-100 hover:border-blue-200 transition-colors cursor-pointer group" onClick={() => setForm({email: 'admin@cahcet.ac.in', password: 'admin'})}>
+              <div className="bg-gray-50/80 p-3 rounded-xl border border-gray-100 hover:border-blue-200 transition-colors cursor-pointer group" onClick={() => setForm({email: 'admin@mmes.ac.in', password: 'admin'})}>
                 <span className="block font-semibold text-gray-800 mb-1 flex items-center justify-between">
                   Admin <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 text-blue-500 transition-opacity"/>
                 </span>
-                <span className="text-[11px] text-gray-500 font-medium">admin@cahcet.ac.in<br/><span className="text-gray-400">admin123  (try 'admin' for demo test)</span></span>
+                <span className="text-[11px] text-gray-500 font-medium">admin@mmes.ac.in<br/><span className="text-gray-400">admin123  (try 'admin' for demo test)</span></span>
               </div>
-              <div className="bg-gray-50/80 p-3 rounded-xl border border-gray-100 hover:border-blue-200 transition-colors cursor-pointer group" onClick={() => setForm({email: 'student@cahcet.ac.in', password: 'student123'})}>
+              <div className="bg-gray-50/80 p-3 rounded-xl border border-gray-100 hover:border-blue-200 transition-colors cursor-pointer group" onClick={() => setForm({email: 'student@mmes.ac.in', password: 'student123'})}>
                 <span className="block font-semibold text-gray-800 mb-1 flex items-center justify-between">
                   Student <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 text-blue-500 transition-opacity"/>
                 </span>
-                <span className="text-[11px] text-gray-500 font-medium">student@cahcet.ac.in<br/><span className="text-gray-400">student123</span></span>
+                <span className="text-[11px] text-gray-500 font-medium">student@mmes.ac.in<br/><span className="text-gray-400">student123</span></span>
               </div>
             </div>
           </div>
